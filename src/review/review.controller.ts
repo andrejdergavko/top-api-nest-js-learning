@@ -1,10 +1,10 @@
 import { Body, Controller, Post, Delete, Param, Get } from '@nestjs/common';
-import { ReviewModel } from './review.model';
+import { ReviewDocument } from './review.schema';
 
 @Controller('review')
 export class ReviewController {
   @Post('create')
-  async create(@Body() dto: Omit<ReviewModel, '_id'>) {}
+  async create(@Body() dto: Omit<ReviewDocument, '_id'>) {}
 
   @Delete(':id')
   async delete(@Param('id') id: string) {}

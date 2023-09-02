@@ -9,13 +9,13 @@ import {
   HttpCode,
 } from '@nestjs/common';
 
-import { TopPageModel } from './top-page.model';
+import { TopPageDocument } from './top-page.schema';
 import { FindTopPageDto } from './dto/find-top-page.dto';
 
 @Controller('top-page')
 export class TopPageController {
   @Post('create')
-  async create(@Body() dto: Omit<TopPageModel, '_id'>) {}
+  async create(@Body() dto: Omit<TopPageDocument, '_id'>) {}
 
   @Get(':id')
   async get(@Param('id') id: string) {}
@@ -24,7 +24,7 @@ export class TopPageController {
   async delete(@Param('id') id: string) {}
 
   @Patch(':id')
-  async patch(@Param('id') id: string, @Body() dto: TopPageModel) {}
+  async patch(@Param('id') id: string, @Body() dto: TopPageDocument) {}
 
   @HttpCode(200)
   @Post()

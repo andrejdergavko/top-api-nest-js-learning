@@ -9,13 +9,13 @@ import {
   HttpCode,
 } from '@nestjs/common';
 
-import { ProductModel } from './product.model';
+import { ProductDocument } from './product.schema';
 import { FindProductDto } from './dto/find-product.dto';
 
 @Controller('product')
 export class ProductController {
   @Post('create')
-  async create(@Body() dto: Omit<ProductModel, '_id'>) {}
+  async create(@Body() dto: Omit<ProductDocument, '_id'>) {}
 
   @Get(':id')
   async get(@Param('id') id: string) {}
@@ -24,7 +24,7 @@ export class ProductController {
   async delete(@Param('id') id: string) {}
 
   @Patch(':id')
-  async patch(@Param('id') id: string, @Body() dto: ProductModel) {}
+  async patch(@Param('id') id: string, @Body() dto: ProductDocument) {}
 
   @HttpCode(200)
   @Post()
