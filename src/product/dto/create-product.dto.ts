@@ -49,7 +49,6 @@ export class CreateProductDto {
   @IsString({ each: true })
   tags: string[];
 
-  @IsArray()
   @ValidateNested()
   @Type(() => ProductCharacteristicDto)
   characteristics: ProductCharacteristicDto[];
